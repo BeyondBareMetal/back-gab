@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { MailerSend } = require('mailersend');
 const cors = require('cors')
+require('dotenv').config()
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Configuración de Middlewares
 app.use(bodyParser.json());
@@ -56,6 +57,7 @@ app.post('/send-email', async (req, res) => {
 });
 
 // Iniciar servidor
+
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
