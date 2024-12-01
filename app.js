@@ -48,11 +48,11 @@ app.post('/send-email', async (req, res) => {
 
     // Enviar correo
     await mailersend.email.send(emailData);
-    res.status(200).json({ message: 'Correo enviado con éxito.' });
+    res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Error enviando correo:', error);
+    console.error('There was an error sending the email', error);
     console.log(error.body.errors)
-    res.status(500).json({ message: 'Hubo un error al enviar el correo.' });
+    res.status(500).json({ message: 'There was an error sending the email.' });
   }
 });
 
